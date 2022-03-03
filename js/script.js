@@ -7,10 +7,13 @@ const h2risultatoSelezionato = document.querySelector('#risultato');
 
 
 
+
 function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
-    h2risultatoSelezionato.innerHTML = ``
 
+    const arrayRisultato = [];
+
+    h2risultatoSelezionato.innerHTML = ``;
     const arrayNumeriRandom = [];
     while (arrayNumeriRandom.length < 16) {
         let numeroRandom = Math.floor(Math.random() * quantiNumeriDevoCreare) + 1;
@@ -30,7 +33,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         divNumero.classList.add(`${classeDifficolta}`);
         divNumero.innerHTML = index;
         divContainer.append(divNumero);
-        divNumero.addEventListener('click', cambioColoreSfondo);
+        divNumero.addEventListener('click', funzioneDoppia);
 
         for (let index = 0; index < arrayNumeriRandom.length; index++) {
 
@@ -39,14 +42,21 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
             }
         }
     }
+}
 
+function funzioneDoppia() {
+    cambioColoreSfondo();
+    conteggioRisultato();
 }
 
 
+function conteggioRisultato() {
+    arrayRisultato.push(divNumero.innerHTML);
+}
 
 function cambioColoreSfondoRosso() {
     this.classList.add('bomba');
-    h2risultatoSelezionato.innerHTML = `hai perso`
+    h2risultatoSelezionato.innerHTML = `hai perso`;
 }
 
 function cambioColoreSfondo() {
@@ -54,10 +64,6 @@ function cambioColoreSfondo() {
 
 }
 
-function disabilitaFunzione() {
-    cambioColoreSfondo = function () { }
-
-}
 
 
 bottonePlay.addEventListener('click', gioca);
@@ -78,4 +84,9 @@ function gioca() {
     }
 
 }
+
+
+
+
+
 
