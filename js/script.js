@@ -5,15 +5,8 @@ const inputDifficolta = document.querySelector('#difficolta');
 
 
 
-function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
-    for (let index = 1; index <= quantiNumeriDevoCreare; index++) {
 
-        let divNumero = document.createElement('div');
-        divNumero.classList.add(`${classeDifficolta}`);
-        divNumero.innerHTML = index;
-        divContainer.append(divNumero);
-        divNumero.addEventListener('click', cambioColoreSfondo);
-    }
+function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
     const arrayNumeriRandom = [];
     while (arrayNumeriRandom.length < 16) {
@@ -23,13 +16,50 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         }
         arrayNumeriRandom.push(numeroRandom);
     }
-
     console.log(arrayNumeriRandom);
+
+
+
+    let divNumero;
+    for (let index = 1; index <= quantiNumeriDevoCreare; index++) {
+
+        divNumero = document.createElement('div');
+        divNumero.classList.add(`${classeDifficolta}`);
+        divNumero.innerHTML = index;
+        divContainer.append(divNumero);
+        divNumero.addEventListener('click', cambioColoreSfondo);
+
+        for (let index = 0; index < arrayNumeriRandom.length; index++) {
+
+            if (divNumero.innerHTML == arrayNumeriRandom[index]) {
+                divNumero.addEventListener('click', cambioColoreSfondoRosso);
+            }
+        }
+    }
+
+}
+
+
+
+function cambioColoreSfondoRosso() {
+    this.classList.add('bomba');
 }
 
 function cambioColoreSfondo() {
     this.classList.add('selezionata');
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 bottonePlay.addEventListener('click', gioca);
