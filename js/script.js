@@ -4,14 +4,9 @@ const divContainer = document.querySelector('#container');
 const inputDifficolta = document.querySelector('#difficolta');
 const h2risultatoSelezionato = document.querySelector('#risultato');
 
-
-
 let arrayRisultato = [];
 
-
 function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
-
-    arrayRisultato = [];
 
     h2risultatoSelezionato.innerHTML = ``;
     const arrayNumeriRandom = [];
@@ -29,6 +24,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
     let divNumero;
     for (let index = 1; index <= quantiNumeriDevoCreare; index++) {
 
+        arrayRisultato = [];
         divNumero = document.createElement('div');
         divNumero.classList.add(`${classeDifficolta}`);
         divNumero.innerHTML = index;
@@ -42,7 +38,12 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
             }
         }
     }
+
 }
+
+
+console.log(arrayRisultato);
+
 
 
 
@@ -53,7 +54,7 @@ function cambioColoreSfondoRosso() {
 
 function cambioColoreSfondo() {
     this.classList.add('selezionata');
-    arrayRisultato.push(divNumero.innerHTML);
+    arrayRisultato.push(this.innerHTML);
 }
 
 
