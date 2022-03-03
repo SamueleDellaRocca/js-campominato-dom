@@ -1,0 +1,96 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+nav {
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+main {
+    height: 83vh;
+    background-color: aquamarine;
+}
+
+
+footer {
+    height: 7vh;
+    display: flex;
+    align-items: center;
+}
+
+/* nav elements  */
+h1 {
+    font-size: 2rem;
+}
+
+
+#difficolta {
+    width: 150px;
+}
+
+#bottone_play {
+    padding: 0px 20px;
+}
+
+
+/* main elements  */
+main {
+    display: flex;
+}
+
+#container {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.carta_easy {
+    width: 10%;
+    height: 10%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.carta_medium {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.carta_hard {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+
+/* footer elements  */
+.credits {
+    margin-left: 250px;
+}
+
+
+
+.selezionata {
+    background-color: blue;
+}
