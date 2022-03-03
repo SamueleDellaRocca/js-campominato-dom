@@ -2,11 +2,14 @@
 const bottonePlay = document.querySelector('#bottone_play');
 const divContainer = document.querySelector('#container');
 const inputDifficolta = document.querySelector('#difficolta');
+const h2risultatoSelezionato = document.querySelector('#risultato');
 
 
 
 
 function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
+
+    h2risultatoSelezionato.innerHTML = ``
 
     const arrayNumeriRandom = [];
     while (arrayNumeriRandom.length < 16) {
@@ -43,6 +46,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
 function cambioColoreSfondoRosso() {
     this.classList.add('bomba');
+    h2risultatoSelezionato.innerHTML = `hai perso`
 }
 
 function cambioColoreSfondo() {
@@ -50,16 +54,10 @@ function cambioColoreSfondo() {
 
 }
 
+function disabilitaFunzione() {
+    cambioColoreSfondo = function () { }
 
-
-
-
-
-
-
-
-
-
+}
 
 
 bottonePlay.addEventListener('click', gioca);

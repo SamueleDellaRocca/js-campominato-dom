@@ -42,15 +42,19 @@ h1 {
 /* main elements  */
 main {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #container {
     width: 500px;
     height: 500px;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    position: relative;
 }
 
 .carta_easy {
@@ -98,4 +102,12 @@ main {
 
 .bomba {
     background-color: red;
+}
+
+
+
+#risultato {
+    text-transform: uppercase;
+    position: absolute;
+    top: 80px;
 }
