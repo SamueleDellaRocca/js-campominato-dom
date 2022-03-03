@@ -6,12 +6,12 @@ const h2risultatoSelezionato = document.querySelector('#risultato');
 
 
 
+let arrayRisultato = [];
 
 
 function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
-
-    const arrayRisultato = [];
+    arrayRisultato = [];
 
     h2risultatoSelezionato.innerHTML = ``;
     const arrayNumeriRandom = [];
@@ -33,7 +33,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         divNumero.classList.add(`${classeDifficolta}`);
         divNumero.innerHTML = index;
         divContainer.append(divNumero);
-        divNumero.addEventListener('click', funzioneDoppia);
+        divNumero.addEventListener('click', cambioColoreSfondo);
 
         for (let index = 0; index < arrayNumeriRandom.length; index++) {
 
@@ -44,15 +44,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
     }
 }
 
-function funzioneDoppia() {
-    cambioColoreSfondo();
-    conteggioRisultato();
-}
 
-
-function conteggioRisultato() {
-    arrayRisultato.push(divNumero.innerHTML);
-}
 
 function cambioColoreSfondoRosso() {
     this.classList.add('bomba');
@@ -61,7 +53,7 @@ function cambioColoreSfondoRosso() {
 
 function cambioColoreSfondo() {
     this.classList.add('selezionata');
-
+    arrayRisultato.push(divNumero.innerHTML);
 }
 
 
