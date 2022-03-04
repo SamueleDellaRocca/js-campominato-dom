@@ -38,17 +38,15 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         divNumero.innerHTML = index;
         divContainer.append(divNumero);
 
-        // CICLO CHE CONFRONTA I NUMERI DELLE BOMBE CON I NUMERI DELLE CELLE, PER STABILIRE BOMBE E NUMERI BUONI
-        for (let index = 0; index < arrayBombe.length; index++) {
+        // IF CHE CONFRONTA I NUMERI DELLE BOMBE CON I NUMERI DELLE CELLE, PER STABILIRE BOMBE E NUMERI BUONI
+        if (arrayBombe.includes(parseInt(divNumero.innerHTML))) {
+            divNumero.addEventListener('click', funzioneBombe);
 
-            if (divNumero.innerHTML == arrayBombe[index]) {
-                divNumero.addEventListener('click', funzioneBombe);
-
-            } else {
-                divNumero.addEventListener('click', funzioneNumeriBuoni);
-            }
-
+        } else {
+            divNumero.addEventListener('click', funzioneNumeriBuoni);
         }
+
+
         // FINE CICLO
     }
     // FINE GENERATORE DI NUMERI
