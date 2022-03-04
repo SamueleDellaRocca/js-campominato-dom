@@ -42,10 +42,10 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         for (let index = 0; index < arrayBombe.length; index++) {
 
             if (divNumero.innerHTML == arrayBombe[index]) {
-                divNumero.addEventListener('click', cambioColoreSfondoRosso);
+                divNumero.addEventListener('click', funzioneBombe);
 
             } else {
-                divNumero.addEventListener('click', cambioColoreSfondo);
+                divNumero.addEventListener('click', funzioneNumeriBuoni);
             }
 
         }
@@ -59,7 +59,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
 
 // FUNZIONE CLICK NUMERI BUONI
-function cambioColoreSfondo() {
+function funzioneNumeriBuoni() {
     this.classList.add('selezionata');
     arrayRisultato.push(this.innerHTML);
     console.log(arrayRisultato);
@@ -67,7 +67,7 @@ function cambioColoreSfondo() {
 
 
 // FUNZIONE CLICK BOMBE
-function cambioColoreSfondoRosso() {
+function funzioneBombe() {
     this.classList.add('bomba');
     h2risultatoSelezionato.innerHTML = `hai perso, hai fatto ${arrayRisultato.length} punti`;
 }
