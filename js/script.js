@@ -22,9 +22,9 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
 
     let divNumero;
+    arrayRisultato = [];
     for (let index = 1; index <= quantiNumeriDevoCreare; index++) {
 
-        arrayRisultato = [];
         divNumero = document.createElement('div');
         divNumero.classList.add(`${classeDifficolta}`);
         divNumero.innerHTML = index;
@@ -39,17 +39,17 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         }
     }
 
+    console.log(arrayRisultato);
 }
 
 
-console.log(arrayRisultato);
 
 
 
 
 function cambioColoreSfondoRosso() {
     this.classList.add('bomba');
-    h2risultatoSelezionato.innerHTML = `hai perso`;
+    h2risultatoSelezionato.innerHTML = `hai perso, hai fatto ${arrayRisultato.length} punti`;
 }
 
 function cambioColoreSfondo() {
