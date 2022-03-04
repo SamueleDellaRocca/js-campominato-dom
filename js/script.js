@@ -46,8 +46,6 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
             divNumero.addEventListener('click', funzioneNumeriBuoni);
         }
 
-
-        // FINE CICLO
     }
     // FINE GENERATORE DI NUMERI
 
@@ -61,6 +59,7 @@ function funzioneNumeriBuoni() {
     this.classList.add('selezionata');
     arrayRisultato.push(this.innerHTML);
     console.log(arrayRisultato);
+    this.removeEventListener('click', funzioneNumeriBuoni);
 }
 
 
@@ -68,6 +67,8 @@ function funzioneNumeriBuoni() {
 function funzioneBombe() {
     this.classList.add('bomba');
     h2risultatoSelezionato.innerHTML = `hai perso, hai fatto ${arrayRisultato.length} punti`;
+    this.removeEventListener('click', funzioneBombe);
+    this.removeEventListener('click', funzioneNumeriBuoni);
 }
 
 
