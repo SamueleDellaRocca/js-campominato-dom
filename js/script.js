@@ -1,26 +1,34 @@
-// selezione elementi html 
+// SELEZIONE ELEMENTI HTML 
 const bottonePlay = document.querySelector('#bottone_play');
 const divContainer = document.querySelector('#container');
 const inputDifficolta = document.querySelector('#difficolta');
 const h2risultatoSelezionato = document.querySelector('#risultato');
+// FINE SELEZIONE ELEMENTI
+
+
+
 
 let arrayRisultato = [];
 
+// SETUP GIOCO
+// FUNZIONE PER CREARE IL NUMERO DI CASELLE IN BASE ALLA DIFFICOLTA
 function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
+    // GENERATORE ARRAY BOMBE BOMBE 
     h2risultatoSelezionato.innerHTML = ``;
-    const arrayNumeriRandom = [];
-    while (arrayNumeriRandom.length < 16) {
+    const arrayBombe = [];
+    while (arrayBombe.length < 16) {
         let numeroRandom = Math.floor(Math.random() * quantiNumeriDevoCreare) + 1;
-        while (arrayNumeriRandom.includes(numeroRandom)) {
+        while (arrayBombe.includes(numeroRandom)) {
             numeroRandom = Math.floor(Math.random() * quantiNumeriDevoCreare) + 1;
         }
-        arrayNumeriRandom.push(numeroRandom);
+        arrayBombe.push(numeroRandom);
     }
-    console.log(arrayNumeriRandom);
+    console.log(arrayBombe);
+    // FINE GENERATORE ARRAY BOMBE
 
 
-
+    // GENERATORE DI NUMERI IN BASE ALLA DIFFICOLTà
     let divNumero;
     arrayRisultato = [];
     for (let index = 1; index <= quantiNumeriDevoCreare; index++) {
@@ -29,36 +37,46 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         divNumero.classList.add(`${classeDifficolta}`);
         divNumero.innerHTML = index;
         divContainer.append(divNumero);
-        divNumero.addEventListener('click', cambioColoreSfondo);
 
-        for (let index = 0; index < arrayNumeriRandom.length; index++) {
+        // CICLO CHE CONFRONTA I NUMERI DELLE BOMBE CON I NUMERI DELLE CELLE, PER STABILIRE BOMBE E NUMERI BUONI
+        for (let index = 0; index < arrayBombe.length; index++) {
 
-            if (divNumero.innerHTML == arrayNumeriRandom[index]) {
+            if (divNumero.innerHTML == arrayBombe[index]) {
                 divNumero.addEventListener('click', cambioColoreSfondoRosso);
-            }
-        }
-    }
 
+            } else {
+                divNumero.addEventListener('click', cambioColoreSfondo);
+            }
+
+        }
+        // FINE CICLO
+    }
+    // FINE GENERATORE DI NUMERI
+
+}
+// FINE FUNZIONE PER CREARE IL NUMERO DI CASELLE
+
+
+
+// FUNZIONE CLICK NUMERI BUONI
+function cambioColoreSfondo() {
+    this.classList.add('selezionata');
+    arrayRisultato.push(this.innerHTML);
     console.log(arrayRisultato);
 }
 
 
-
-
-
-
+// FUNZIONE CLICK BOMBE
 function cambioColoreSfondoRosso() {
     this.classList.add('bomba');
     h2risultatoSelezionato.innerHTML = `hai perso, hai fatto ${arrayRisultato.length} punti`;
 }
 
-function cambioColoreSfondo() {
-    this.classList.add('selezionata');
-    arrayRisultato.push(this.innerHTML);
-}
 
 
 
+
+// INIZIO DEL GIOCO
 bottonePlay.addEventListener('click', gioca);
 
 function gioca() {
