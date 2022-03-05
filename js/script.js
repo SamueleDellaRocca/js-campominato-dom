@@ -63,14 +63,14 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         let numeroCasella = parseInt(this.innerHTML);
         if (arrayBombe.includes(numeroCasella)) {
 
-            const caselle = document.querySelectorAll('.carta');
-            for (let index = 0; index < caselle.length; index++) {
+            const tutteLeCaselle = document.querySelectorAll('.carta');
+            for (let index = 0; index < tutteLeCaselle.length; index++) {
 
-                caselle[index].removeEventListener('click', funzioneNumeriBuoni);
-                caselle[index].removeEventListener('click', funzioneBombe);
+                tutteLeCaselle[index].removeEventListener('click', funzioneNumeriBuoni);
+                tutteLeCaselle[index].removeEventListener('click', funzioneBombe);
 
-                if (arrayBombe.includes(parseInt(caselle[index].innerHTML))) {
-                    caselle[index].classList.add('bomba');
+                if (arrayBombe.includes(parseInt(tutteLeCaselle[index].innerHTML))) {
+                    tutteLeCaselle[index].classList.add('bomba');
                 }
             }
 
@@ -89,11 +89,11 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
         if (arrayRisultato.length == caselleBuone) {
             h2risultatoSelezionato.innerHTML = `hai vinto, hai fatto ${arrayRisultato.length} punti`;
-            const caselle = document.querySelectorAll('.carta');
-            for (let index = 0; index < caselle.length; index++) {
+            const tutteLeCaselle = document.querySelectorAll('.carta');
+            for (let index = 0; index < tutteLeCaselle.length; index++) {
 
-                caselle[index].removeEventListener('click', funzioneNumeriBuoni);
-                caselle[index].removeEventListener('click', funzioneBombe);
+                tutteLeCaselle[index].removeEventListener('click', funzioneNumeriBuoni);
+                tutteLeCaselle[index].removeEventListener('click', funzioneBombe);
             }
         }
     }
