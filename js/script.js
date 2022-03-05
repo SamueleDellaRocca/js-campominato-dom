@@ -14,10 +14,10 @@ let arrayRisultato = [];
 // FUNZIONE PER CREARE IL NUMERO DI CASELLE IN BASE ALLA DIFFICOLTA
 function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
-    // GENERATORE ARRAY BOMBE BOMBE 
+    // GENERATORE ARRAY BOMBE 
     h2risultatoSelezionato.innerHTML = ``;
     const arrayBombe = [];
-    while (arrayBombe.length < 16) {
+    while (arrayBombe.length < 1) {
         let numeroRandom = Math.floor(Math.random() * quantiNumeriDevoCreare) + 1;
         while (arrayBombe.includes(numeroRandom)) {
             numeroRandom = Math.floor(Math.random() * quantiNumeriDevoCreare) + 1;
@@ -28,6 +28,8 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
     // FINE GENERATORE ARRAY BOMBE
 
 
+
+    const caselleBuone = quantiNumeriDevoCreare - arrayBombe.length;
     // GENERATORE DI NUMERI IN BASE ALLA DIFFICOLTà
     let divNumero;
     arrayRisultato = [];
@@ -66,29 +68,35 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
                 caselle[index].removeEventListener('click', funzioneNumeriBuoni);
                 caselle[index].removeEventListener('click', funzioneBombe);
-
             }
 
         }
     }
+    //FINE FUNZIONE DELLE BOMBE
+
+
+
+    // FUNZIONE CLICK NUMERI BUONI
+    function funzioneNumeriBuoni() {
+        this.classList.add('selezionata');
+        arrayRisultato.push(this.innerHTML);
+        console.log(arrayRisultato);
+        this.removeEventListener('click', funzioneNumeriBuoni);
+
+        if (arrayRisultato.length == caselleBuone) {
+            h2risultatoSelezionato.innerHTML = `hai vinto, hai fatto ${arrayRisultato.length} punti`;
+            const caselle = document.querySelectorAll('.carta');
+            for (let index = 0; index < caselle.length; index++) {
+
+                caselle[index].removeEventListener('click', funzioneNumeriBuoni);
+                caselle[index].removeEventListener('click', funzioneBombe);
+            }
+        }
+    }
+    //FINE FUNZIONE NUMERI BUONI
 
 }
 // FINE FUNZIONE PER CREARE IL NUMERO DI CASELLE
-
-
-
-// FUNZIONE CLICK NUMERI BUONI
-function funzioneNumeriBuoni() {
-    this.classList.add('selezionata');
-    arrayRisultato.push(this.innerHTML);
-    console.log(arrayRisultato);
-    this.removeEventListener('click', funzioneNumeriBuoni);
-}
-
-
-
-
-
 
 
 
@@ -111,9 +119,3 @@ function gioca() {
     }
 
 }
-
-
-
-
-
-
