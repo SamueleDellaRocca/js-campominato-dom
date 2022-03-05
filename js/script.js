@@ -34,7 +34,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
     for (let index = 1; index <= quantiNumeriDevoCreare; index++) {
 
         divNumero = document.createElement('div');
-        divNumero.classList.add(`${classeDifficolta}`);
+        divNumero.classList.add(`${classeDifficolta}`, 'carta');
         divNumero.innerHTML = index;
         divContainer.append(divNumero);
 
@@ -48,6 +48,29 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
     }
     // FINE GENERATORE DI NUMERI
+
+
+
+
+    // FUNZIONE CLICK BOMBE
+    function funzioneBombe() {
+        this.classList.add('bomba');
+        h2risultatoSelezionato.innerHTML = `hai perso, hai fatto ${arrayRisultato.length} punti`;
+        this.removeEventListener('click', funzioneBombe);
+
+        numeroCasella = parseInt(this.innerHTML);
+        if (arrayBombe.includes(numeroCasella)) {
+
+            const caselle = document.querySelectorAll('.carta');
+            for (let index = 0; index < caselle.length; index++) {
+
+                caselle[index].removeEventListener('click', funzioneNumeriBuoni);
+                caselle[index].removeEventListener('click', funzioneBombe);
+
+            }
+
+        }
+    }
 
 }
 // FINE FUNZIONE PER CREARE IL NUMERO DI CASELLE
@@ -63,13 +86,7 @@ function funzioneNumeriBuoni() {
 }
 
 
-// FUNZIONE CLICK BOMBE
-function funzioneBombe() {
-    this.classList.add('bomba');
-    h2risultatoSelezionato.innerHTML = `hai perso, hai fatto ${arrayRisultato.length} punti`;
-    this.removeEventListener('click', funzioneBombe);
-    this.removeEventListener('click', funzioneNumeriBuoni);
-}
+
 
 
 
