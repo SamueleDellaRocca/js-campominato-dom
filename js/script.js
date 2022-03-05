@@ -58,7 +58,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
         h2risultatoSelezionato.innerHTML = `hai perso, hai fatto ${arrayRisultato.length} punti`;
         this.removeEventListener('click', funzioneBombe);
 
-        numeroCasella = parseInt(this.innerHTML);
+        let numeroCasella = parseInt(this.innerHTML);
         if (arrayBombe.includes(numeroCasella)) {
 
             const caselle = document.querySelectorAll('.carta');
