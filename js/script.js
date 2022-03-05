@@ -68,6 +68,10 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
 
                 caselle[index].removeEventListener('click', funzioneNumeriBuoni);
                 caselle[index].removeEventListener('click', funzioneBombe);
+
+                if (arrayBombe.includes(parseInt(caselle[index].innerHTML))) {
+                    caselle[index].classList.add('bomba');
+                }
             }
 
         }
