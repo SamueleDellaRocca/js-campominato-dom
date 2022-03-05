@@ -17,7 +17,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
     // GENERATORE ARRAY BOMBE 
     h2risultatoSelezionato.innerHTML = ``;
     const arrayBombe = [];
-    while (arrayBombe.length < 1) {
+    while (arrayBombe.length < 16) {
         let numeroRandom = Math.floor(Math.random() * quantiNumeriDevoCreare) + 1;
         while (arrayBombe.includes(numeroRandom)) {
             numeroRandom = Math.floor(Math.random() * quantiNumeriDevoCreare) + 1;
