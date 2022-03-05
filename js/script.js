@@ -72,6 +72,7 @@ function creaNumeri(quantiNumeriDevoCreare, classeDifficolta) {
                 if (arrayBombe.includes(parseInt(tutteLeCaselle[index].innerHTML))) {
                     tutteLeCaselle[index].classList.add('bomba');
                 }
+                console.log(tutteLeCaselle[index]);
             }
 
         }
